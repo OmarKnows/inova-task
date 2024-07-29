@@ -10,7 +10,9 @@ class EbooksService {
 		const { data } = await api.get(EAPI.EBOOKS);
 		return data;
 	}
-	public async details(id: string): Promise<any> {
+	public async details(id?: string): Promise<{
+		data: IEbook;
+	}> {
 		const { data } = await api.get(`${EAPI.EBOOKS}/${id}`);
 		return data;
 	}
