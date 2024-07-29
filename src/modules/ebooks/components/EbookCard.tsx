@@ -1,14 +1,16 @@
 import React from 'react';
 import { IEbook } from '../../../app/api/types/ebook.types';
 import { MdOutlineShoppingCart } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 interface IEBookCardProps {
 	ebook: IEbook;
 }
 
 const EbookCard: React.FC<IEBookCardProps> = ({ ebook }) => {
+	const navigate = useNavigate();
 	return (
-		<div className='bg-[#1e1e1e] w-[287px] h-[450px] text-white'>
+		<div className='bg-[#1e1e1e] cursor-pointer w-[287px] h-[450px] text-white' onClick={() => navigate(ebook?.id)}>
 			<div className='w-[287px] h-[250px]'>
 				<img src='' alt='ProductCard' className='w-full h-full object-cover' />
 			</div>
