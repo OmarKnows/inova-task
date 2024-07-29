@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { MdKeyboardArrowDown, MdOutlineShoppingCart } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
+import { ROUTES } from '../../../app/constants/routes';
 
 const Navbar = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -11,7 +13,9 @@ const Navbar = () => {
 	return (
 		<nav className='bg-[#1e1e1e] p-[6px]'>
 			<div className='flex mx-6 items-center gap-12 text-white font-medium'>
-				<div className='cursor-pointer'>Home</div>
+				<NavLink to='/' className='cursor-pointer'>
+					Home
+				</NavLink>
 				<div className='relative'>
 					<button onClick={toggleDropdown} className='text-white focus:outline-none flex items-center gap-2'>
 						News
@@ -25,7 +29,9 @@ const Navbar = () => {
 					)}
 				</div>
 				<div className='cursor-pointer'>Courses</div>
-				<div className='cursor-pointer'>E-books</div>
+				<NavLink to={ROUTES.EBOOKS} className='cursor-pointer'>
+					E-books
+				</NavLink>
 				<div className='cursor-pointer'>Contact Us</div>
 				<div className='ms-auto flex items-center gap-2'>
 					<MdOutlineShoppingCart size={24} />
